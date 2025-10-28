@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Snake – Schritt für Schritt</title>
+  <style>
+    body { margin: 0px; background:#EDEDED; color:#ddd; font:14px/1.4 system-ui, sans-serif; }
+	  canvas {position: absolute; top:0; box-shadow: inset 0 0 15px black;}
+	  #range {position: absolute; top: 40px; right: 40px;}
+	  #colorwheel {position: absolute; top: 40px; right: 200px;}
+  </style>
+
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <p>Score: <span id="score">0</span> • Pfeiltasten steuern • Space = Neustart</p>
+	<input id="colorwheel" type="color">
+	<input id="range" type="range" min="5" max="20">
+
+  <script>
+   	const canvas = document.getElementById("game");
+	const ctx = canvas.getContext("2d");
+	  
+	  canvas.width = window.innerWidth;
+	  canvas.height = window.innerHeight;
+	
+	 
+	const SIZE = 20;
+	const COLS = window.innerWidth / SIZE;
+	const ROWS = window.innerHeight / SIZE;
+	  
+	  console.log("width: " + COLS)
+	  console.log("height: " + ROWS)
+	  
+	let snake = [{x:Math.floor(COLS / 2), y:Math.floor(ROWS / 2)}];
+	  console.log(snake);
+	  
+	let dx = 1;
+	  let dy = 0;
+	  
+	let food = {
+		x: Math.floor(Math.random()*COLS),
+		y: Math.floor(Math.random()*ROWS)
+	}
+	
+	const MAX_BLOCK_SIZE = document.getElementById("range").value;
+	
+	let block = {
+		width: Math.floor(Math.random()*MAX_BLOCK_SIZE)+1,
+		height: Math.floor(Math.random()*MAX_BLOCK_SIZE)+1,
+	}
+	
+		block.x = Math.floor(Math.random() * (COLS - block.width));
+	  	block.y = Math.floor(Math.random() * (ROWS - block.height));
+	  
+	function drawBlock() {
+		ctx.fillStyle = "black";
+		ctx.fillRect (block.x * SIZE, block.y * SIZE, block.width * SIZE, block.height * SIZE)
+	}
+	  
+	function draw() {
+		ctx.clearRect (0,0,window.innerWidth, window.innerHeight);
+		ctx.fillStyle = document.getElementById("colorwheel").value;
+		for (let s of snake) {
+			ctx.fillRect (s.x * SIZE, s.y * SIZE, SIZE, SIZE);
+		}
+		
+		ctx.fillStyle = "red";
+		ctx.fillRect (food.x * SIZE, food.y * SIZE, SIZE, SIZE)
+	}
+	  
+	 function update() {
+		 let head = {x: snake[0].x + dx, y: snake[0].y + dy};
+		 
+		 if (head.x === food.x && head.y === food.y) {
+			 snake.unshift(head);
+			food = {
+			x: Math.floor(Math.random()*COLS),
+			y: Math.floor(Math.random()*ROWS)
+			};
+			 block = {
+		width: Math.floor(Math.random()*MAX_BLOCK_SIZE)+1,
+		height: Math.floor(Math.random()*MAX_BLOCK_SIZE)+1,
+	}
+		block.x = Math.floor(Math.random() * (COLS - block.width));
+	  	block.y = Math.floor(Math.random() * (ROWS - block.height));
+			
+		} else {
+				 snake.pop();
+				 snake.unshift(head);
+			 }
+		 
+		 draw();
+		 drawBlock();
+		 updateProjectiles();
+		 
+		 if (head.x < 0 || head.x >= COLS || head.y < 0 || head.y >= ROWS)  {
+			 alert("game over");
+			 snake = [{x:Math.floor(COLS / 2), y:Math.floor(ROWS / 2)}];
+			 window.location.reload();
+		 }
+		 
+		if (head.x >= block.x && head.x < block.x + block.width &&
+			head.y >= block.y && head.y < block.y + block.height) {
+			alert("game over");
+			snake = [{x: Math.floor(COLS / 2), y: Math.floor(ROWS / 2)}];
+			window.location.reload();
+}
+		 }
+	 
+	  
+	  setInterval(update, 150);
+	  
+	  
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "ArrowUp" && dy === 0) { dx = 0; dy = -1; }
+				if (e.key === "ArrowDown" && dy === 0) { dx = 0; dy = 1; }
+				if (e.key === "ArrowLeft" && dx === 0) { dx = -1; dy = 0; }
+				if (e.key === "ArrowRight" && dx === 0) { dx = 1; dy = 0; }
+				if (e.code === "Space") { shoot(); } // ✅ Space schießen
+			});
+	  
+	  
+let projectiles = []; // Array für mehrere Schüsse
+
+function shoot() {
+    let head = snake[0];
+    projectiles.push({
+        x: head.x,
+        y: head.y,
+        dx: dx,  // Richtung der Schlange übernehmen
+        dy: dy
+    });
+}
+
+function updateProjectiles() {
+    for (let p of projectiles) {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        // Zeichnen
+        ctx.fillStyle = "blue";
+        ctx.fillRect(p.x * SIZE + SIZE/4, p.y * SIZE + SIZE/4, SIZE/2, SIZE/2);
+    }
+
+    // Optional: Projektile entfernen, die aus dem Spielfeld fliegen
+    projectiles = projectiles.filter(p => p.x >= 0 && p.x < COLS && p.y >= 0 && p.y < ROWS);
+}
+		  
+		  
+
+	  
+	  
+  </script>
+</body>
+</html>

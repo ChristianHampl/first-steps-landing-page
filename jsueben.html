@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Snake – Schritt für Schritt</title>
+  <style>
+    body { margin: 0px; background:#2e2e2e; color:#ddd; font:14px/1.4 system-ui, sans-serif;}
+	  .container {width: 100%; margin-top: 5%; display: flex; justify-content: center;}
+	  .containeritem {width: 80vw; height: 80vh; background: #FFC79E; border-radius: 50px;}
+	  
+#plus {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.30)
+}
+	  #plus:hover {
+		  cursor: pointer;
+	  }
+	
+
+#plus::before,
+#plus::after {
+  content: "";
+  position: absolute;
+  background: #ccc;
+}
+
+#plus::before {
+  width: 40px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#plus::after {
+  width: 10px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+	  
+	  .categorycontainer {
+		  display: flex;
+		  justify-content: center;
+	  }
+	  
+	  .todoview {
+		  position: absolute;
+		  top: 12%;
+		  left: 15%;
+		  z-index: 1;
+		  display: flex;
+		  flex-wrap: nowrap;
+		  justify-content: flex-start;
+		  align-items: center;
+		  height: 64vh;
+		  width: 80%;
+		  background: red;
+		  border-radius: 50px;
+	  }
+	  
+	  .productview {
+		  position: absolute;
+		  top: 12%;
+		  left: 15%;
+		  z-index: 1;
+		  display: flex;
+		  flex-wrap: nowrap;
+		  justify-content: flex-start;
+		  align-items: center;
+		  height: 64vh;
+		  width: 80%;
+		  background: red;
+		  border-radius: 50px;
+	  }
+	  
+	  .category {
+		  display: flex;
+		  flex-wrap: nowrap;
+		  justify-content: flex-start;
+		  align-items: center;
+		  height: 64vh;
+		  width: 80%;
+		  background: rgba(255,255,255,0.5);
+		  border-radius: 50px;
+		  overflow-x: auto;
+	  }
+	  
+	  .categorycard {
+		  flex-shrink: 0;
+		  height:32vh;
+		  width: 20%;
+		  background: white;
+		  border-radius: 25px;
+		  margin-left: 2em;
+		  margin-right: 2em;
+	  }
+	  
+	  .popup {
+		  position: absolute;
+		  z-index: 1;
+		  top: 12%;
+		  left: 15%;
+		  background: white;
+		  border-radius: 50px;
+		  display: flex;
+		  justify-content: center;
+		  align-content: center;
+		  height: 75vh;
+		  width: 70vw;
+	  }
+	 
+	  .hidden {
+		  display: none;
+	  }
+	  
+  </style>
+
+</head>
+<body>
+	
+		<div id= "popup" class="popup hidden">
+		 <div class="popupcontent">
+			<input type="text" id="name" placeholder="Wie soll die Kategorie heißen?" maxlength="10">;
+			 	<input type="radio" id="aufgaben" value="Aufgaben" name="type"> <label for="aufgaben">Aufgabenliste</label>
+				<input type="radio" id="produkte" value="Produkte" name="type"> <label for="produkte">Produktliste</label>
+			 <select name="color" id="color" placeholder="Wähle eine Farbe">
+			 	  <option value="#ff0000" style="background:red; color:white;">Rot</option>
+				  <option value="#00ff00" style="background:green; color:white;">Grün</option>
+				  <option value="#0000ff" style="background:blue; color:white;">Blau</option>
+				  <option value="#ffff00" style="background:yellow; color:black;">Gelb</option>
+				  <option value="#000000" style="background:black; color:white;">Schwarz</option>
+			 </select>
+			 <button onClick="handleCategoryData()">submit</button>
+			</div>
+		</div>
+  
+		<div class="container">
+			<div class="containeritem">
+			<div id="plus" onclick="displayCategory()"></div>
+				<div class="categorycontainer">
+			       <div class="category">
+					  <!-- <div class="categorycard"></div>-->
+					</div>
+				</div>
+			</div>
+		</div>	
+	
+	<script>
+	const category = document.querySelector('.category');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+category.addEventListener('mousedown', (e) => {
+  isDown = true;
+  category.classList.add('active');
+  startX = e.pageX - category.offsetLeft;
+  scrollLeft = category.scrollLeft;
+});
+category.addEventListener('mouseleave', () => {
+  isDown = false;
+  category.classList.remove('active');
+});
+category.addEventListener('mouseup', () => {
+  isDown = false;
+  category.classList.remove('active');
+});
+category.addEventListener('mousemove', (e) => {
+  if (!isDown) return; // nur wenn Maus gedrückt
+  e.preventDefault();
+  const x = e.pageX - category.offsetLeft;
+  const walk = (x - startX) ; // 2 = Geschwindigkeit
+  category.scrollLeft = scrollLeft - walk;
+});
+		
+
+				const categorybox = document.getElementsByClassName("category")[0];
+				const detailBox   = document.getElementsByClassName("containeritem")[0];
+
+				function displayCategory() {
+				  const popup = document.getElementById("popup");
+				  popup.classList.toggle("hidden");
+				}
+
+				let idCounter = 0;
+				let taskCounter = 0;
+				let productCounter = 0;
+
+				function getCategory() {
+				  idCounter++;
+
+				  const idCard  = `card-${idCounter}`;
+				  const idTitle = `title-${idCounter}`;
+
+				  const categoryCard = document.createElement("div");
+				  categoryCard.classList.add("categorycard");
+				  categoryCard.id = idCard;
+				  categoryCard.style.backgroundColor = document.getElementById("color").value;
+
+				  // Radio “type” auslesen – sicher
+				  const selectedInput = document.querySelector('input[name="type"]:checked');
+				  const selected = selectedInput ? selectedInput.value : null;
+
+				  const categoryTitle = document.createElement("h2");
+				  categoryTitle.id = idTitle;
+				  categoryTitle.innerText = document.getElementById("name").value;
+
+				  categoryCard.appendChild(categoryTitle);
+				  categorybox.appendChild(categoryCard);
+
+				  // Detail-IDs vorbereiten
+				  let dvTodo = null;
+				  let dvProduct = null;
+
+					  if (selected === "Aufgaben") {
+						taskCounter++;
+
+						categoryCard.setAttribute("name", `${selected}${taskCounter}`);
+
+						const detailToDoView = document.createElement("div");
+						detailToDoView.classList.add("todoview", "hidden");
+						detailToDoView.id = `todoview${taskCounter}`;
+						detailToDoView.style.background = document.getElementById("color").value;
+						dvTodo = detailToDoView.id;
+
+						const detailToDoViewTitle = document.createElement("h2");
+						detailToDoViewTitle.innerText = categoryTitle.innerText;
+
+						detailToDoView.appendChild(detailToDoViewTitle);
+						detailBox.appendChild(detailToDoView);
+
+							  } else if (selected === "Produkte") {
+								productCounter++;
+
+								categoryCard.setAttribute("name", `${selected}${productCounter}`);
+
+								const detailProductView = document.createElement("div");
+								detailProductView.classList.add("productview", "hidden");
+								detailProductView.id = `productview${productCounter}`;
+								detailProductView.style.background = document.getElementById("color").value;
+								dvProduct = detailProductView.id;
+
+								const detailProductViewTitle = document.createElement("h2");
+								detailProductViewTitle.innerText = categoryTitle.innerText;
+
+								detailProductView.appendChild(detailProductViewTitle);
+								detailBox.appendChild(detailProductView);
+							  }
+
+				  // Verknüpfung an der Karte speichern (für Klicks)
+				  if (dvTodo)    categoryCard.dataset.dvTodo = dvTodo;
+				  if (dvProduct) categoryCard.dataset.dvProduct = dvProduct;
+
+				  // Click-Handler sauber binden
+				  categoryCard.addEventListener("click", getDetailView);
+
+				  displayCategory();
+
+				  // Nur existente Werte zurückgeben
+				  return { card: idCard, dvTodo, dvProduct };
+				}
+				
+					
+					const CategoryDatas = []			
+		
+					function handleCategoryData() {
+						let data = getCategory();
+						CategoryDatas.push(data);
+						console.log(CategoryDatas);
+					}
+
+					function getDetailView(e) {
+						const el = e.currentTarget; // die geklickte Karte
+
+						if (el.dataset.dvTodo) {
+							let todoview = document.getElementById(el.dataset.dvTodo);
+							todoview.classList.toggle("hidden");
+							
+						} else if (el.dataset.dvProduct) {
+							let productview = document.getElementById(el.dataset.dvProduct);
+							productview.classList.toggle("hidden")
+						} else {
+							console.log("keine Ansicht vorhanden");
+						}
+					}
+				
+			
+		
+		
+	</script>
+	
+</body>
+</html>

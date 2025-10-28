@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+.price {
+	height: 600px;
+	z-index: 4;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	margin-bottom: 30px;
+}
+
+.priceitem {
+	height: 60vh;
+	width: 25vw;
+	padding: 50px;
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(12.9px);
+	-webkit-backdrop-filter: blur(12.9px);	
+	margin: 40px;
+}
+
+.priceitem h2 {
+	background: white;
+	border-radius: 20px;
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 40px
+}
+
+.priceitem li {
+	list-style-type: circle;
+	font-family: arial;
+	font-size: 20px;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+#free {
+	background: #F2B485;
+	background:  
+	linear-gradient(white, white)padding-box,       /* Innen */
+    linear-gradient(#00dbde, #00dbde) border-box; /* Außen */
+
+	
+}
+
+#plus {
+	background: rgba(242,180,133,0.60);
+	background:  
+	linear-gradient(white,white)padding-box,       /* Innen */
+    linear-gradient(to left, #8b63f0, #00dbde) border-box; /* Außen */
+	border: 10px solid transparent;
+}
+
+.plussymbol {
+	font-weight: bolder;
+	font-size: 40px;
+    background: linear-gradient(90deg,#fc00ff, #00dbde);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+}
+
+
+#unlimited {
+	background: rgba(220,123,170,0.60);
+	background:  
+/*	linear-gradient(white, white)padding-box, */      /* Innen */
+    linear-gradient(to right, #8b63f0, #00dbde) border-box; /* Außen */
+	border: 10px solid transparent;
+}
+
+#unlimited ul {
+	color: white
+}
+
+#textunlimited {
+	 background: linear-gradient(90deg,#fc00ff, #00dbde);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+	font-weight: bold;
+}
+
+#price {
+	transform: scale(1.1);
+	transform: rotate(2deg);
+	box-shadow: 0 -6px 5px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+
+.pricedetail {
+	height: 100px;
+	z-index: 4;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin-bottom: 100px;
+}
+
+.pricedetailitem {
+	height: 80px;
+	width: 25vw;
+	border-radius: 40px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(12.9px);
+	-webkit-backdrop-filter: blur(12.9px);	
+	margin: 40px;
+	align-content: center
+}
+
+.pricedetailitem {
+	cursor: pointer
+}
+
+.pricedetailitem h2 {
+	font-size: 35px;
+	text-align: center
+}
+
+.marqueeFeedback {
+  overflow: hidden;
+  color: white;
+  height: 200px;
+	align-content: center
+}
+
+.marquee-trackFeedback {
+  display: flex;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+  gap: 2rem; /* Abstand zwischen allen Items */
+  will-change: transform;
+}
+
+.scrollcontainerFed {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* sorgt auch innerhalb jeder Hälfte für Abstand */
+}
+
+.scrollitemFed {
+	border-radius: 40px;
+	border: 3px solid transparent;
+  	height: 150px;
+	width: 400px;
+	align-content: center;
+ /* background: black;*/
+}
+
+.scrollitemFed h2 {
+	color: #2e2e2e;
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+	padding: 30px;
+	font-style: italic
+}
+
+.stars {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center
+}
+
+.stars svg {
+	margin: 0
+}

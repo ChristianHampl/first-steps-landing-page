@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pricing</title>
+	<link id="style" rel="stylesheet" href="style.css">
+	<link id="styleprice" rel="stylesheet" href="stylepricing.css">
+	<link rel="stylesheet" href="button.css">
+	<link rel="stylesheet" href="tiles.css">
+</head>
+<body>
+	
+	<div class="popupcont hide" id="popup">
+		<div class="popup"> 
+			<button onclick="popupclose()">X</button>
+			<h2>Lade <span id="firststeps">FirstSteps</span> <br>im App Store herunter</h2>
+		</div>
+		</div>
+		
+	<!--Popupfunction-->
+		<script>
+		function popup() {
+			const popup = document.getElementById("popup");
+			popup.classList.remove("hide")
+		}	
+			
+		function popupclose() {
+			const popup = document.getElementById("popup");
+			popup.classList.add("hide")
+		}
+			
+		</script>
+	
+	
+	<div class="container">
+	
+		<header>
+<!--		    <div class="headerflex">
+				<img src="images/Unbenanntes_Projekt 3.png" alt="logo">
+			</div>-->
+			
+			<div class="headerflex">
+				<img src="images/Unbenanntes_Projekt 3.png" alt="logo"> <h1>FirstSteps</h1>
+				<nav>
+					<ul>
+						<li><a href="index.html">X</a></li>
+						<li><a id="price" href="#">Pricing</a></li>
+						<li><a href="blog.html">Blog</a></li>
+					</ul>
+				<a id="getstart" href="#"><button>Get Started</button></a>
+				</nav>
+			
+			</div>
+		</header>
+		
+		
+		<main>
+			<div class="overflowgrad">
+				<div class="gradcircle"></div>
+			</div>
+			
+			
+			
+			<div class="price">
+			
+					<div class="priceitem" id="free"> 
+							<h2>FirstSteps Free</h2> 	
+							<ul> 
+								<li>Funktionen: Termine und Checklisten, Tagebuch mit Fotos, Basis‑Widgets, lokale und iCloud‑Sicherung, Datenschutz nach DSGVO.</li>
+								<li>Für wen: Alle, die FirstSteps unverbindlich testen oder die Essentials nutzen möchten.</li>
+							</ul> 
+					</div>
+					
+					<div class="priceitem" id="plus">
+							<h2>FirstSteps Plus <span class="plussymbol">+</span></h2> 	
+							<ul> 
+								<li>Funktionen: Alles aus Free + Multi‑Device Sync über iCloud, intelligente Checklisten (Prioritäten/Erinnerungen), Still‑ und Wehen‑Tracker, Kalender‑Integration, erweiterte Widgets, PDF‑Export einzelner Einträge.</li>
+								<li>Für wen: Eltern, die ihren Alltag komfortabel und datensicher organisieren wollen.</li>
+							</ul> 
+					</div>
+					
+					<div class="priceitem" id="unlimited">
+						<h2><span id="textunlimited">FirstSteps <span class="plussymbol">+</span></span> Unlimited</h2> 	
+							<ul> 
+								<li>Funktionen: Alles aus Plus + Partner‑Freigabe mit Echtzeit‑Sync, gemeinsame Checklisten und Termine, unbegrenzte Exporte, Statistik und Trends, exklusives Icon‑Pack, Prioritäts‑Support.</li>
+								<li>Für wen: Familien/Paare, die Informationen teilen und perfekt abgestimmt bleiben möchten.</li>
+							</ul> 
+					</div>
+		
+			</div>
+			
+			<div class="pricedetail">
+			
+					<div class="pricedetailitem" onclick="popup()"> 
+							<h2>kostenfrei</h2> 	
+					</div>
+					
+					<div class="pricedetailitem" onclick="popup()">
+							<h2>2,99 € pro Monat</h2> 	
+					</div>
+					
+					<div class="pricedetailitem" onclick="popup()">
+						<h2>29,99€ einmalig</h2> 	
+					</div>
+				
+			</div>
+				
+			<div class="stars"><svg fill="#ffda24" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve" stroke="#ffda24"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <polygon points="60.44,233.482 48.895,196.215 37.351,233.482 0,233.482 30.22,256.513 18.676,293.785 48.895,270.744 79.115,293.785 67.571,256.513 97.791,233.482 "></polygon> <polygon points="158.492,233.482 146.948,196.215 135.403,233.482 98.052,233.482 128.272,256.513 116.728,293.785 146.948,270.744 177.168,293.785 165.623,256.513 195.843,233.482 "></polygon> <polygon points="256.544,233.482 245,196.215 233.456,233.482 196.104,233.482 226.324,256.513 214.78,293.785 245,270.744 275.22,293.785 263.676,256.513 293.895,233.482 "></polygon> <polygon points="354.596,233.482 343.052,196.215 331.508,233.482 294.157,233.482 324.377,256.513 312.832,293.785 343.052,270.744 373.272,293.785 361.728,256.513 391.948,233.482 "></polygon> <polygon points="441.105,196.215 429.56,233.482 392.209,233.482 422.429,256.513 410.885,293.785 441.105,270.744 471.324,293.785 459.78,256.513 490,233.482 452.649,233.482 "></polygon> </g> </g></svg></div>
+				
+			<div class="marqueeFeedback">
+  				<div class="marquee-trackFeedback">
+   					 <div class="scrollcontainerFed">
+    					  <div class="scrollitemFed"><h2>„Unverzichtbar für junge Eltern!“
+Die App hat uns durch die ganze Schwangerschaft begleitet. Termine, Checklisten und sogar ein Wehen-Timer – alles in einer App.</h2></div>
+						  <div class="scrollitemFed"><h2>„Übersichtlich &amp; einfach zu bedienen“
+Ich liebe, wie schnell ich Termine eintragen kann. Die Push-Benachrichtigungen haben mich schon vor so manchem vergessenen Termin gerettet.</h2></div>
+						  <div class="scrollitemFed"><h2>„Alles was man braucht, in einer App“
+Vom Tagebuch bis zum Budgetplaner – FirstSteps hat alles, was wir für die Vorbereitung aufs Baby gebraucht haben.</h2></div>
+						  <div class="scrollitemFed"><h2>„Hilft uns jeden Tag“
+Die Widgets sind super praktisch, besonders der Stillzeiten-Timer. Freue mich schon auf die neuen Features.</h2></div>
+						  <div class="scrollitemFed"><h2>„Empfehlung für alle werdenden Eltern“
+Habe schon viele Apps ausprobiert, aber keine ist so vollständig und gleichzeitig so leicht zu bedienen wie FirstSteps.</h2></div>
+  					  </div>
+					<div class="scrollcontainerFed">
+						 <div class="scrollitemFed"><h2>„Unverzichtbar für junge Eltern!“
+Die App hat uns durch die ganze Schwangerschaft begleitet. Termine, Checklisten und sogar ein Wehen-Timer – alles in einer App.</h2></div>
+						  <div class="scrollitemFed"><h2>„Übersichtlich &amp; einfach zu bedienen“
+Ich liebe, wie schnell ich Termine eintragen kann. Die Push-Benachrichtigungen haben mich schon vor so manchem vergessenen Termin gerettet.</h2></div>
+						  <div class="scrollitemFed"><h2>„Alles was man braucht, in einer App“
+Vom Tagebuch bis zum Budgetplaner – FirstSteps hat alles, was wir für die Vorbereitung aufs Baby gebraucht haben.</h2></div>
+						  <div class="scrollitemFed"><h2>„Hilft uns jeden Tag“
+Die Widgets sind super praktisch, besonders der Stillzeiten-Timer. Freue mich schon auf die neuen Features.</h2></div>
+						  <div class="scrollitemFed"><h2>„Empfehlung für alle werdenden Eltern“
+Habe schon viele Apps ausprobiert, aber keine ist so vollständig und gleichzeitig so leicht zu bedienen wie FirstSteps.</h2></div>
+					</div>
+ 				 </div>
+			</div>
+		
+			
+			
+			<div class="feedbackcontainer">
+					<div class="feedbackitem"></div>
+			
+			</div>
+			
+			
+	<!--		Ende Scrollbar-->
+			
+			
+			<div class="footspace"></div>
+			
+			<div class="progressbar">
+					<div class="progress"></div>
+					<div class="total"></div>
+			</div>
+			
+		</main>
+	
+	
+	</div>
+	
+	<div class="svgcontainer"><svg onclick="popup()" version="1.1" class="download-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-237.1 377.9 133.1 38.2" enable-background="new -237.1 377.9 133.1 38.2" role="img" aria-label="Download on the Apple store" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+  <g fill="currentColor">
+    <path d="M-157.1,389.6c0.2-0.1,0.3-0.3,0.4-0.6c0-0.1,0-0.1,0-0.2v-0.7c-1.2,0-1.7,0.3-1.7,1c0,0.2,0.1,0.4,0.2,0.6
+      s0.3,0.2,0.5,0.2C-157.5,389.8-157.3,389.7-157.1,389.6z"></path>
+    <path d="M-167,400.4c-0.5,0-1,0.2-1.4,0.5c-0.4,0.3-0.7,0.8-0.8,1.4c-0.1,0.3-0.1,0.5-0.1,0.6v1.6c0,0.7,0.2,1.3,0.6,1.8
+      c0.4,0.5,1,0.7,1.7,0.7c0.8,0,1.4-0.3,1.9-0.9c0.4-0.6,0.7-1.4,0.7-2.4c0-0.9-0.2-1.7-0.6-2.3C-165.6,400.7-166.2,400.4-167,400.4z
+      "></path>
+    <path d="M-163,386.4c-0.4,0-0.7,0.2-1,0.6c-0.2,0.3-0.3,0.7-0.3,1.1c0,0.4,0.1,0.8,0.3,1.1c0.2,0.4,0.5,0.6,1,0.6
+      c0.4,0,0.7-0.2,0.9-0.6c0.2-0.3,0.3-0.7,0.3-1.1s-0.1-0.8-0.3-1.1C-162.3,386.6-162.6,386.4-163,386.4z"></path>
+    <path d="M-185.4,386.4c-0.4,0-0.7,0.2-1,0.6c-0.2,0.3-0.3,0.7-0.3,1.1c0,0.4,0.1,0.8,0.3,1.1c0.2,0.4,0.5,0.6,1,0.6
+      c0.4,0,0.7-0.2,0.9-0.6c0.2-0.3,0.3-0.7,0.3-1.1s-0.1-0.8-0.3-1.1C-184.7,386.6-185,386.4-185.4,386.4z"></path>
+    <path d="M-178,400.4c-0.5,0-1,0.2-1.4,0.5c-0.4,0.3-0.7,0.8-0.8,1.4c-0.1,0.3-0.1,0.5-0.1,0.6v1.6c0,0.7,0.2,1.3,0.6,1.8
+      c0.4,0.5,1,0.7,1.7,0.7c0.8,0,1.4-0.3,1.9-0.9c0.4-0.6,0.7-1.4,0.7-2.4c0-0.9-0.2-1.7-0.6-2.3C-176.6,400.7-177.2,400.4-178,400.4z
+      "></path>
+    <path d="M-190,397L-190,397c-0.2,0.6-0.4,1.4-0.7,2.5l-1.1,3.5h3.6l-1.1-3.5C-189.5,399.1-189.7,398.3-190,397z"></path>
+    <path d="M-190.7,389c0.4-0.4,0.7-1.1,0.7-1.9c0-0.8-0.2-1.3-0.6-1.8c-0.4-0.4-1-0.6-1.8-0.6c-0.3,0-0.6,0-0.8,0.1v4.9
+      c0.1,0,0.4,0,0.7,0C-191.8,389.7-191.1,389.4-190.7,389z"></path>
+    <path d="M-151.2,386.7c-0.2-0.2-0.4-0.3-0.7-0.3c-0.4,0-0.7,0.2-0.9,0.5c-0.2,0.3-0.3,0.7-0.3,1.2c0,0.5,0.1,0.8,0.3,1.1
+      c0.2,0.3,0.5,0.5,0.9,0.5c0.3,0,0.6-0.1,0.8-0.4c0.2-0.2,0.3-0.5,0.3-0.9v-0.8c0-0.1,0-0.2,0-0.3
+      C-150.9,387.1-151,386.9-151.2,386.7z"></path>
+    <path d="M-118.3,401.1c-0.4-0.6-0.9-0.9-1.7-0.9c-0.7,0-1.3,0.3-1.7,0.9c-0.4,0.5-0.6,1-0.6,1.7h4.4
+      C-117.9,402.1-118,401.5-118.3,401.1z"></path>
+    <path d="M-137,400.3c-0.9,0-1.5,0.4-2,1.1c-0.4,0.6-0.6,1.4-0.6,2.3c0,0.9,0.2,1.6,0.6,2.3c0.5,0.8,1.1,1.1,1.9,1.1
+      c0.8,0,1.5-0.4,1.9-1.2c0.4-0.6,0.6-1.4,0.6-2.3c0-0.9-0.2-1.6-0.6-2.3C-135.5,400.7-136.2,400.3-137,400.3z"></path>
+    <path d="M-104,381.7c0-2.1-1.7-3.8-3.8-3.8h-125.5c-2.1,0-3.8,1.7-3.8,3.8v30.5c0,2.1,1.7,3.8,3.8,3.8h125.5c2.1,0,3.8-1.7,3.8-3.8
+      L-104,381.7z M-120.4,386.4c0.4-0.5,1-0.8,1.6-0.8c0.7,0,1.2,0.3,1.5,0.8c0.3,0.4,0.4,0.9,0.4,1.5c0,0.2,0,0.3,0,0.5h-3.1
+      c0,0.5,0.2,0.8,0.5,1.1c0.3,0.2,0.6,0.3,1,0.3c0.5,0,0.9-0.1,1.3-0.2l0.2,0.7c-0.4,0.2-1,0.3-1.6,0.3c-0.7,0-1.3-0.2-1.7-0.6
+      c-0.4-0.4-0.6-1-0.6-1.7C-121,387.4-120.8,386.8-120.4,386.4z M-138.3,385.7l0,0.7h0c0.1-0.2,0.3-0.4,0.5-0.6
+      c0.3-0.2,0.6-0.3,1-0.3c0.4,0,0.8,0.1,1.1,0.4c0.4,0.3,0.5,0.9,0.5,1.6v2.8h-1v-2.7c0-0.8-0.3-1.2-1-1.2c-0.3,0-0.6,0.1-0.8,0.3
+      c-0.2,0.2-0.3,0.5-0.3,0.8v2.8h-1v-3.4c0-0.4,0-0.9,0-1.3H-138.3z M-144.7,386.3c0.4-0.5,1-0.7,1.7-0.7c0.7,0,1.2,0.2,1.7,0.7
+      c0.4,0.4,0.6,1,0.6,1.7c0,0.7-0.2,1.3-0.6,1.8c-0.4,0.5-1,0.7-1.7,0.7c-0.7,0-1.2-0.2-1.7-0.7c-0.4-0.5-0.6-1-0.6-1.7
+      C-145.4,387.4-145.2,386.8-144.7,386.3z M-168,383.6h1v6.9h-1V383.6z M-181,385.7l0.5,2.2c0.1,0.5,0.2,1,0.3,1.5h0
+      c0.1-0.4,0.2-0.9,0.4-1.5l0.7-2.2h0.9l0.6,2.2c0.2,0.5,0.3,1.1,0.4,1.6h0c0.1-0.5,0.2-1,0.3-1.6l0.6-2.2h1l0,0v0h0l-1.5,4.7h-1
+      l-0.6-2c-0.2-0.5-0.3-1-0.4-1.5h0c-0.1,0.5-0.2,1-0.4,1.5l-0.6,2h-1l-1.4-4.7H-181z M-194.3,384c0.6-0.1,1.2-0.1,1.8-0.1
+      c1.1,0,2,0.2,2.6,0.7c0.7,0.6,1,1.4,1,2.4c0,1.2-0.4,2.1-1.1,2.7c-0.7,0.5-1.6,0.8-2.8,0.8c-0.6,0-1.1,0-1.5-0.1V384z
+       M-213.5,385.2c0.9-1.1,2.5-1.9,3.8-1.9c0.2,1.5-0.4,3-1.3,4.1c-0.9,1.1-2.4,1.9-3.8,1.8C-215,387.6-214.3,386.1-213.5,385.2z
+       M-206.2,405.6c-1,1.6-2.1,3.1-3.9,3.1c-1.7,0-2.3-1-4.2-1c-2,0-2.6,1-4.2,1c-1.7,0.1-2.9-1.7-4-3.2c-2.2-3.2-3.9-8.9-1.6-12.9
+      c1.1-1.9,3.1-3.2,5.2-3.2c1.7,0,3.2,1.1,4.2,1.1c1,0,2.9-1.4,4.9-1.2c0.8,0,3.2,0.3,4.7,2.5c-0.1,0.1-2.8,1.6-2.8,4.9
+      c0,3.9,3.4,5.1,3.4,5.2C-204.5,402-205,403.8-206.2,405.6z M-186.6,408.5l-1.2-3.9h-4.3l-1.2,3.9h-2.2l4.3-13.3h2.6l4.3,13.3
+      H-186.6z M-183.7,389.8c-0.4,0.5-1,0.7-1.7,0.7c-0.7,0-1.2-0.2-1.7-0.7c-0.4-0.5-0.6-1-0.6-1.7c0-0.7,0.2-1.3,0.6-1.8
+      c0.4-0.5,1-0.7,1.7-0.7c0.7,0,1.2,0.2,1.7,0.7c0.4,0.4,0.6,1,0.6,1.7C-183.1,388.8-183.3,389.4-183.7,389.8z M-174.7,407.5
+      c-0.8,0.8-1.8,1.3-2.9,1.3c-1.3,0-2.2-0.5-2.7-1.4h0v5.1h-2.1v-10.3c0-1,0-2.1-0.1-3.2h1.9l0.1,1.5h0c0.7-1.1,1.8-1.7,3.2-1.7
+      c1.1,0,2.1,0.4,2.8,1.3c0.8,0.9,1.1,2.1,1.1,3.5C-173.3,405.2-173.8,406.5-174.7,407.5z M-172.6,386.8c-0.2,0.2-0.3,0.5-0.3,0.8
+      v2.8h-1v-3.4c0-0.4,0-0.9,0-1.3h0.9l0,0.7h0c0.1-0.2,0.3-0.4,0.5-0.6c0.3-0.2,0.6-0.3,0.9-0.3c0.4,0,0.8,0.1,1.1,0.4
+      c0.4,0.3,0.5,0.9,0.5,1.6v2.8h-1v-2.7c0-0.8-0.3-1.2-1-1.2C-172.1,386.5-172.4,386.6-172.6,386.8z M-163.6,407.5
+      c-0.8,0.8-1.8,1.3-2.9,1.3c-1.3,0-2.2-0.5-2.7-1.4h0v5.1h-2.1v-10.3c0-1,0-2.1-0.1-3.2h1.9l0.1,1.5h0c0.7-1.1,1.8-1.7,3.2-1.7
+      c1.1,0,2.1,0.4,2.8,1.3c0.8,0.9,1.1,2.1,1.1,3.5C-162.3,405.2-162.7,406.5-163.6,407.5z M-161.4,389.8c-0.4,0.5-1,0.7-1.7,0.7
+      c-0.7,0-1.2-0.2-1.7-0.7c-0.4-0.5-0.6-1-0.6-1.7c0-0.7,0.2-1.3,0.6-1.8c0.4-0.5,1-0.7,1.7-0.7c0.7,0,1.2,0.2,1.7,0.7
+      c0.4,0.4,0.6,1,0.6,1.7C-160.7,388.8-160.9,389.4-161.4,389.8z M-159.5,389.2c0-0.6,0.2-1,0.7-1.3c0.5-0.3,1.2-0.5,2-0.4v-0.1
+      c0-0.6-0.3-0.9-1-0.9c-0.5,0-0.9,0.1-1.2,0.3l-0.2-0.7c0.4-0.3,1-0.4,1.6-0.4c1.2,0,1.9,0.7,1.9,2v1.7c0,0.5,0,0.8,0.1,1.1h-0.9
+      l-0.1-0.5h0c-0.3,0.4-0.8,0.6-1.4,0.6c-0.4,0-0.8-0.1-1.1-0.4C-159.4,389.9-159.5,389.5-159.5,389.2z M-151.1,407.5
+      c-0.9,0.8-2.1,1.2-3.6,1.2c-1.4,0-2.6-0.3-3.4-0.8l0.5-1.8c0.9,0.6,2,0.9,3.1,0.9c0.8,0,1.4-0.2,1.9-0.5c0.4-0.4,0.7-0.8,0.7-1.5
+      c0-0.5-0.2-1-0.6-1.4c-0.4-0.4-1-0.7-1.8-1c-2.3-0.9-3.5-2.1-3.5-3.8c0-1.1,0.4-2,1.2-2.7c0.8-0.7,1.9-1,3.3-1c1.2,0,2.2,0.2,3,0.6
+      l-0.5,1.7c-0.8-0.4-1.6-0.6-2.5-0.6c-0.8,0-1.3,0.2-1.8,0.6c-0.4,0.3-0.5,0.7-0.5,1.2c0,0.5,0.2,1,0.6,1.3c0.4,0.3,1,0.7,1.9,1
+      c1.1,0.5,2,1,2.5,1.6c0.5,0.6,0.8,1.4,0.8,2.3C-150,405.9-150.4,406.8-151.1,407.5z M-150.6,390.4l0-0.8h0
+      c-0.3,0.6-0.8,0.9-1.5,0.9c-0.6,0-1-0.2-1.4-0.7c-0.4-0.4-0.6-1-0.6-1.7c0-0.8,0.2-1.4,0.6-1.9c0.4-0.4,0.9-0.7,1.5-0.7
+      c0.6,0,1.1,0.2,1.3,0.6h0v-2.7h1v5.6c0,0.5,0,0.9,0,1.3H-150.6z M-142.9,400.5h-2.4v4.7c0,1.2,0.4,1.8,1.2,1.8c0.4,0,0.7,0,0.9-0.1
+      l0.1,1.6c-0.4,0.2-1,0.2-1.7,0.2c-0.8,0-1.5-0.3-2-0.8c-0.5-0.5-0.7-1.4-0.7-2.6v-4.8h-1.4v-1.6h1.4v-1.8l2.1-0.6v2.4h2.3V400.5z
+       M-133.6,407.3c-0.9,1-2.1,1.5-3.5,1.5c-1.4,0-2.5-0.5-3.4-1.4s-1.3-2.1-1.3-3.5c0-1.5,0.4-2.7,1.3-3.7c0.9-0.9,2-1.4,3.5-1.4
+      c1.4,0,2.5,0.5,3.4,1.4c0.8,0.9,1.2,2.1,1.2,3.5C-132.3,405.1-132.7,406.3-133.6,407.3z M-130.9,385.7h0.7v-0.9l1-0.3v1.2h1.2v0.8
+      h-1.2v2.3c0,0.6,0.2,0.9,0.6,0.9c0.2,0,0.3,0,0.5,0l0,0.8c-0.2,0.1-0.5,0.1-0.8,0.1c-0.4,0-0.7-0.1-1-0.4c-0.2-0.3-0.3-0.7-0.3-1.3
+      v-2.4h-0.7V385.7z M-125.4,400.8c-0.2,0-0.4-0.1-0.7-0.1c-0.8,0-1.3,0.3-1.7,0.8c-0.4,0.5-0.5,1.1-0.5,1.9v5h-2.1l0-6.6
+      c0-1.1,0-2.1-0.1-3h1.9l0.1,1.8h0.1c0.2-0.6,0.6-1.1,1.1-1.5c0.5-0.3,1-0.5,1.5-0.5c0.2,0,0.4,0,0.5,0V400.8z M-125.5,387.2
+      c0,0.1,0,0.2,0,0.4v2.8h-1v-6.9h1v2.8h0c0.3-0.5,0.8-0.8,1.4-0.8c0.4,0,0.8,0.1,1.1,0.4c0.4,0.4,0.5,0.9,0.5,1.6v2.8h-1v-2.7
+      c0-0.8-0.3-1.3-0.9-1.3C-125,386.5-125.3,386.7-125.5,387.2z M-115.9,404.2h-6.4c0,0.9,0.3,1.7,0.9,2.2c0.5,0.4,1.2,0.7,2.1,0.7
+      c0.9,0,1.8-0.2,2.6-0.5l0.3,1.5c-0.9,0.4-2,0.6-3.2,0.6c-1.5,0-2.7-0.4-3.5-1.3c-0.8-0.9-1.3-2-1.3-3.5c0-1.4,0.4-2.7,1.2-3.6
+      c0.8-1,1.9-1.5,3.4-1.5c1.4,0,2.4,0.5,3.1,1.5c0.6,0.8,0.8,1.8,0.8,3C-115.8,403.6-115.9,404-115.9,404.2z"></path>
+    <path d="M-143.1,389.8c0.4,0,0.7-0.2,0.9-0.6c0.2-0.3,0.3-0.7,0.3-1.1s-0.1-0.8-0.3-1.1c-0.2-0.4-0.5-0.6-0.9-0.6
+      c-0.4,0-0.7,0.2-1,0.6c-0.2,0.3-0.3,0.7-0.3,1.1c0,0.4,0.1,0.8,0.3,1.1C-143.8,389.6-143.5,389.8-143.1,389.8z"></path>
+    <path d="M-118,386.8c-0.2-0.3-0.5-0.4-0.8-0.4c-0.3,0-0.6,0.1-0.8,0.4c-0.2,0.2-0.3,0.5-0.3,0.8h2.2
+      C-117.8,387.3-117.9,387-118,386.8z"></path>
+  </g>
+</svg> </div>
+	
+	<div class="footeritem" role="footer"><p><a href="impressum.html">Impressum</a></p><p><a href="impressum.html">Datenschutz</a></p><p>Copyright © 2025 </p></div>
+			
+	
+	
+	
+</body>
+	
+	<div class="tilecontainer1">
+		<div class="tile hidden" id="tile1"></div>
+		<div class="tile hidden" id="tile2"></div>
+		<div class="tile hidden" id="tile3"></div>
+		<div class="tile hidden" id="tile4"></div>
+		<div class="tile hidden" id="tile5"></div>
+	</div>
+	
+	<div class="tilecontainer2">
+		<div class="tile hidden" id="tile6"></div>
+		<div class="tile hidden" id="tile7"></div>
+		<div class="tile hidden" id="tile8"></div>
+		<div class="tile hidden" id="tile9"></div>
+		<div class="tile hidden" id="tile10"></div>
+	</div>
+	
+	<div class="tilecontainer3">
+		<div class="tile hidden" id="tile11"></div>
+		<div class="tile hidden" id="tile12"></div>
+		<div class="tile hidden" id="tile13"></div>
+		<div class="tile hidden" id="tile14"></div>
+		<div class="tile hidden" id="tile15"></div>
+	</div>
+	
+	<div class="tilecontainer4">
+		<div class="tile hidden" id="tile16"></div>
+		<div class="tile hidden" id="tile17"></div>
+		<div class="tile hidden" id="tile18"></div>
+		<div class="tile hidden" id="tile19"></div>
+		<div class="tile hidden" id="tile20"></div>
+	</div>
+	
+	<div class="tilecontainer5">
+		<div class="tile hidden" id="tile21"></div>
+		<div class="tile hidden" id="tile22"></div>
+		<div class="tile hidden" id="tile23"></div>
+		<div class="tile hidden" id="tile24"></div>
+		<div class="tile hidden" id="tile25"></div>
+	</div>
+	
+	<div class="ButtonBorder" id="buttonborder">
+		<input type="checkbox" id="circle" hidden>
+		<label for="circle" class="ButtonCircle" id="buttonlabel"></label>
+	</div>
+	
+	
+	<div id="flash"></div>
+		
+		
+		
+<script>
+	const tiles = document.getElementsByClassName("tile")
+	const buttonborder = document.getElementById("buttonborder");
+	const background = document.getElementsByTagName("body")[0];
+	const button = document.getElementById("buttonlabel");
+	const checkbox = document.getElementById("circle");
+	const style = document.getElementById("style");
+	const styleprice = document.getElementById("styleprice");
+	const video1 = document.getElementById("video1");
+	const video2 = document.getElementById("video2");
+	const video3 = document.getElementById("video3");
+	const video4 = document.getElementById("video4");
+	const progressbar = document.getElementsByClassName("progressbar")[0];
+	
+	window.addEventListener("DOMContentLoaded", () => {
+		const savedTheme = localStorage.getItem("theme");
+			if (savedTheme === "dark") {
+				checkbox.checked = true;
+				style.href = "styledark.css";
+				styleprice.href = "stylepricingdark.css";
+			} else {
+				checkbox.checked = false;
+				style.href = "style.css"
+				styleprice.href = "stylepricing.css";
+			}
+		  checkbox.dispatchEvent(new Event("change"));
+	});
+		
+		
+		checkbox.addEventListener("change", (Event) => {
+			if (Event.target.checked) {
+				localStorage.setItem("theme", "dark");
+				button.classList.add("move");
+				button.classList.remove("remove");
+				//background.style.backgroundColor=("#2e2e2e");
+				buttonborder.style.backgroundColor=("#2e2e2e");
+				    Array.from(tiles).forEach(tile => {
+							tile.classList.remove("hidden");
+							tile.classList.add("gotile");
+							tile.classList.remove("retile");
+							});
+				progressbar.style.display = "hide"
+				setTimeout(() => {
+					style.href = "styledark.css";
+					styleprice.href = "stylepricingdark.css";
+					video1.src = "images/Termine_dark.mp4";
+					video2.src = "images/Checklisten_dark.mp4";
+					video3.src = "images/Tagebuch_dark.mp4";
+					video4.src = "images/Widgets_dark.mp4";
+					progressbar.style.display = "flex"
+				}, 1000)
+				
+				} else {
+					localStorage.setItem("theme", "light");
+    				button.classList.add("remove");
+    				button.classList.remove("move");
+				//	background.style.backgroundColor=("#E5E5E5")
+					buttonborder.style.backgroundColor=("#E5E5E5");
+						Array.from(tiles).forEach(tile => {
+							tile.classList.add("retile");
+							tile.classList.remove("gotile")
+							});
+					
+					setTimeout(() => {
+						style.href = "style.css";
+						styleprice.href = "stylepricing.css";
+						video1.src = "images/Termine.mp4";
+						video2.src = "images/Checklisten.mp4";
+						video3.src = "images/Tagebuch.mp4";
+						video4.src = "images/Widgets.mp4";
+					}, 1000)
+					
+					}
+			}
+		)
+		
+		const flash = document.getElementById("flash");
+
+		document.addEventListener("mousemove", (e) => {
+			flash.style.top = e.pageY + "px";
+			flash.style.left = e.pageX + "px";
+  });
+	</script>
+	
+	<script src="script.js"></script>
+</html>

@@ -1,0 +1,225 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#flash {
+	position: absolute;
+	z-index: 1001;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.80);
+	filter: blur(100px);
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+}
+
+.tilecontainer1 {
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: flex-start;
+	position: absolute;
+	z-index: -2;
+	top: 0
+	
+}
+
+.tilecontainer2 {
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: flex-start;
+	position: absolute;
+	z-index: -2;
+	top: 20vh
+}
+
+.tilecontainer3 {
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: flex-start;
+	position: absolute;
+	z-index: -2;
+	top: 40vh
+}
+
+.tilecontainer4 {
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: flex-start;
+	position: absolute;
+	z-index: -2;
+	top: 60vh;
+}
+
+.tilecontainer5 {
+	width: 100%;
+	height: 20vh;
+	display: flex;
+	justify-content: flex-start;
+	position: absolute;
+	z-index: -2;
+	top: 80vh
+	
+}
+
+.hidden {
+	display: none
+}
+
+.tile {
+	width: 20%;
+	height: 100%;
+	background: rgba(46,46,46,1.00);
+}
+
+.gotile {
+	animation: tile 1s linear;
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+.retile {
+	animation: retile 1s linear;
+	opacity: 100;
+	animation-fill-mode: forwards;
+}
+
+#tile1 {
+	animation-delay: 0.3s
+}
+
+#tile2 {
+	animation-delay: 0.4s
+}
+
+#tile3 {
+	animation-delay: 0.3s
+}
+
+#tile4 {
+	animation-delay: 0.4s
+}
+
+#tile5 {
+	animation-delay: 0.3s
+}
+
+#tile6 {
+	animation-delay: 0.4s
+}
+
+#tile7 {
+	animation-delay: 0.1s;
+}
+
+#tile8 {
+	animation-delay: 0.2s
+}
+
+#tile9 {
+	animation-delay: 0.1s
+}
+
+#tile10 {
+	animation-delay: 0.4s
+}
+
+#tile11 {
+	animation-delay: 0.3s
+}
+
+#tile12 {
+	animation-delay: 0.2s
+}
+
+#tile13 {
+	animation-delay: 0
+}
+
+#tile14 {
+	animation-delay: 0.2s
+}
+
+#tile15 {
+	animation-delay: 0.3s
+}
+
+#tile16 {
+	animation-delay: 0.4s
+}
+
+#tile17 {
+	animation-delay: 0.1s
+}
+
+#tile18 {
+	animation-delay: 0.2s
+}
+
+#tile19 {
+	animation-delay: 0.1s
+}
+
+#tile20 {
+	animation-delay: 0.4s
+}
+
+#tile21 {
+	animation-delay: 0.3s
+}
+
+#tile22 {
+	animation-delay: 0.4s
+}
+
+#tile23 {
+	animation-delay: 0.3s
+}
+
+#tile24 {
+	animation-delay: 0.4s
+}
+
+#tile25 {
+	animation-delay: 0.3s
+}
+
+@keyframes tile {
+	from {
+	opacity: 0;
+	box-shadow: 0 0 0 rgba(0,0,0,0.60);
+	}
+	
+	50% {
+	opacity: 50%;
+	box-shadow: 0 25px 15px rgba(0,0,0,0.80);
+	}
+	
+	to {
+	opacity: 100%;
+	box-shadow: 0 0 0 rgba(0,0,0,0.60);
+	}
+	
+}
+
+@keyframes retile {
+	from {
+	opacity: 100;
+	box-shadow: inset 0 0 0 rgba(0,0,0,0.60);
+	}
+	
+	50% {
+	opacity: 50%;
+	box-shadow: 0 25px 15px rgba(0,0,0,0.80);
+	}
+	
+	to {
+	opacity: 0;
+	box-shadow: 0 0 0 rgba(0,0,0,0.60);
+	}
+	
+}
+

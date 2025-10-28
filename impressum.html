@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Impressum / Datenschutz</title>
+	<style>
+    canvas { position: absolute; top:0; display:block; width:100%; height:100%; }
+		h2 { display: inline; position: absolute; z-index: -1; text-align: center; opacity: 10%; left: 25%; top: 45%; font-size: 40px; }
+ 	</style>
+	
+	<link id="style" rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="button.css">
+	<link rel="stylesheet" href="tiles.css">
+</head>
+
+<body>
+	
+	<div class="container">
+	
+		<header>
+<!--		    <div class="headerflex">
+				<img src="images/Unbenanntes_Projekt 3.png" alt="logo">
+			</div>-->
+			
+			<div class="headerflex">
+				<img src="images/Unbenanntes_Projekt 3.png" alt="logo"> <h1>FirstSteps</h1>
+				<nav>
+					<ul>
+						<li><a href="index.html">X</a></li>
+						<li><a href="pricing.html">Pricing</a></li>
+						<li><a href="blog.html">Blog</a></li>
+					</ul>
+				<a id="getstart" href="#"><button>Get Started</button></a>
+					
+				</nav>
+			
+			</div>
+			
+
+		</header>
+	</div>
+	
+<canvas id="c"></canvas>
+	<h2> Impressum und Datenschutz sind doch langweilig .. <br> spiel' lieber mit Kugeln! (klick dich rum)</h2>
+
+  <script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+
+    // HiDPI-Resize
+    function resize() {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width  = Math.floor(innerWidth  * dpr);
+      canvas.height = Math.floor(innerHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // zeichnen in CSS-Pixeln
+    }
+    addEventListener('resize', resize, { passive:true });
+    resize();
+
+    // Physik-Parameter
+    const G = 1500;        // Schwerkraft (px/s^2)
+    const REST = 0.75;     // Rückprall-Koeffizient (0..1)
+    const AIR = 0.0008;    // Luftwiderstand (pro Sekunde, linear)
+    const FRICTION = 0.015;// Reibung beim Bodenkontakt (v_x Dämpfung)
+
+    const balls = [];
+
+    function rnd(min, max){ return Math.random() * (max - min) + min; }
+    function color() {
+      const h = Math.floor(rnd(180, 300)); // kühler Farbton
+      return `hsl(${h} 80% 60%)`;
+    }
+
+    // Ball-"Klasse"
+    function makeBall(x, y) {
+      const r = rnd(12, 28);
+      balls.push({
+        x, y, r,
+        vx: rnd(-200, 200),      // Start-Impulse
+        vy: rnd(-100, 0),
+        color: color()
+      });
+    }
+
+    // Klick erzeugt Kugel
+    canvas.addEventListener('pointerdown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      makeBall(x, y);
+    });
+
+    // Simulations-Loop
+    let last = performance.now();
+    function loop(now) {
+      const dt = Math.min(0.032, (now - last) / 1000); // Zeit in s, max 32ms
+      last = now;
+      step(dt);
+      draw();
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    function step(dt){
+      const w = innerWidth, h = innerHeight;
+
+      for (const b of balls) {
+        // Kräfte → Beschleunigungen
+        const ax = -b.vx * AIR;   // grober Luftwiderstand
+        const ay = G - b.vy * AIR;
+
+        // Integration
+        b.vx += ax * dt;
+        b.vy += ay * dt;
+        b.x  += b.vx * dt;
+        b.y  += b.vy * dt;
+
+        // Kollisionen mit Wänden (einfacher elastischer Stoß)
+        if (b.x - b.r < 0) {
+          b.x = b.r;
+          b.vx = -b.vx * REST;
+        } else if (b.x + b.r > w) {
+          b.x = w - b.r;
+          b.vx = -b.vx * REST;
+        }
+
+        if (b.y - b.r < 0) {
+          b.y = b.r;
+          b.vy = -b.vy * REST;
+        } else if (b.y + b.r > h) {
+          b.y = h - b.r;
+          b.vy = -b.vy * REST;
+          // Bodenreibung: horizontale Geschwindigkeit leicht abbauen
+          b.vx *= (1 - FRICTION);
+          // sehr kleine Geschwindigkeiten -> stoppen
+          if (Math.abs(b.vy) < 8) b.vy = 0;
+          if (Math.abs(b.vx) < 2) b.vx = 0;
+        }
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (const b of balls) {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fillStyle = b.color;
+        ctx.shadowColor = b.color;
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+  </script>
+</body>
+	
+	<div class="tilecontainer1">
+		<div class="tile hidden" id="tile1"></div>
+		<div class="tile hidden" id="tile2"></div>
+		<div class="tile hidden" id="tile3"></div>
+		<div class="tile hidden" id="tile4"></div>
+		<div class="tile hidden" id="tile5"></div>
+	</div>
+	
+	<div class="tilecontainer2">
+		<div class="tile hidden" id="tile6"></div>
+		<div class="tile hidden" id="tile7"></div>
+		<div class="tile hidden" id="tile8"></div>
+		<div class="tile hidden" id="tile9"></div>
+		<div class="tile hidden" id="tile10"></div>
+	</div>
+	
+	<div class="tilecontainer3">
+		<div class="tile hidden" id="tile11"></div>
+		<div class="tile hidden" id="tile12"></div>
+		<div class="tile hidden" id="tile13"></div>
+		<div class="tile hidden" id="tile14"></div>
+		<div class="tile hidden" id="tile15"></div>
+	</div>
+	
+	<div class="tilecontainer4">
+		<div class="tile hidden" id="tile16"></div>
+		<div class="tile hidden" id="tile17"></div>
+		<div class="tile hidden" id="tile18"></div>
+		<div class="tile hidden" id="tile19"></div>
+		<div class="tile hidden" id="tile20"></div>
+	</div>
+	
+	<div class="tilecontainer5">
+		<div class="tile hidden" id="tile21"></div>
+		<div class="tile hidden" id="tile22"></div>
+		<div class="tile hidden" id="tile23"></div>
+		<div class="tile hidden" id="tile24"></div>
+		<div class="tile hidden" id="tile25"></div>
+	</div>
+	
+	<div class="ButtonBorder" id="buttonborder">
+		<input type="checkbox" id="circle" hidden>
+		<label for="circle" class="ButtonCircle" id="buttonlabel"></label>
+	</div>
+	
+	
+	<div id="flash"></div>
+		
+		
+		
+<script>
+	const tiles = document.getElementsByClassName("tile")
+	const buttonborder = document.getElementById("buttonborder");
+	const background = document.getElementsByTagName("body")[0];
+	const button = document.getElementById("buttonlabel");
+	const checkbox = document.getElementById("circle");
+	const style = document.getElementById("style");
+	const video1 = document.getElementById("video1");
+	const video2 = document.getElementById("video2");
+	const video3 = document.getElementById("video3");
+	const video4 = document.getElementById("video4");
+	const progressbar = document.getElementsByClassName("progressbar")[0];
+	
+	window.addEventListener("DOMContentLoaded", () => {
+		const savedTheme = localStorage.getItem("theme");
+			if (savedTheme === "dark") {
+				checkbox.checked = true;
+				style.href = "styledark.css";
+			} else {
+				checkbox.checked = false;
+				style.href = "style.css"
+			}
+		  checkbox.dispatchEvent(new Event("change"));
+	});
+		
+		
+		checkbox.addEventListener("change", (Event) => {
+			if (Event.target.checked) {
+				localStorage.setItem("theme", "dark");
+				button.classList.add("move");
+				button.classList.remove("remove");
+				//background.style.backgroundColor=("#2e2e2e");
+				buttonborder.style.backgroundColor=("#2e2e2e");
+				    Array.from(tiles).forEach(tile => {
+							tile.classList.remove("hidden");
+							tile.classList.add("gotile");
+							tile.classList.remove("retile");
+							});
+				progressbar.style.display = "hide"
+				setTimeout(() => {
+					style.href = "styledark.css";
+					video1.src = "images/Termine_dark.mp4";
+					video2.src = "images/Checklisten_dark.mp4";
+					video3.src = "images/Tagebuch_dark.mp4";
+					video4.src = "images/Widgets_dark.mp4";
+					progressbar.style.display = "flex"
+				}, 1000)
+				
+				} else {
+					localStorage.setItem("theme", "light");
+    				button.classList.add("remove");
+    				button.classList.remove("move");
+				//	background.style.backgroundColor=("#E5E5E5")
+					buttonborder.style.backgroundColor=("#E5E5E5");
+						Array.from(tiles).forEach(tile => {
+							tile.classList.add("retile");
+							tile.classList.remove("gotile")
+							});
+					
+					setTimeout(() => {
+						style.href = "style.css";
+						video1.src = "images/Termine.mp4";
+						video2.src = "images/Checklisten.mp4";
+						video3.src = "images/Tagebuch.mp4";
+						video4.src = "images/Widgets.mp4";
+					}, 1000)
+					
+					}
+			}
+		)
+		
+		const flash = document.getElementById("flash");
+
+		document.addEventListener("mousemove", (e) => {
+			flash.style.top = e.pageY + "px";
+			flash.style.left = e.pageX + "px";
+  });
+	</script>
+	
+	
+</html>

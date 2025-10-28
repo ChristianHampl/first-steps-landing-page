@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	
+}
+
+.ButtonBorder {
+	position: absolute;
+	z-index: 1000;
+	top:20px;
+	right:20px;
+	height: 30px;
+	width: 48px;
+	border-radius: 50px;
+	display: flex;
+	box-shadow: inset 0px 2px 8px rgba(0,0,0,0.80);
+	align-content: center;
+	padding: 5px;
+}
+
+.ButtonCircle {
+	border-radius: 50%;
+	background: linear-gradient(90deg, rgba(88,88,88,1.00), rgba(136,136,136,1.00));
+	height: 100%;
+	width: 50%;
+	overflow: visible;
+	transition: 0.3s ease
+}
+
+
+
+.ButtonBorder2 {
+	position: absolute;
+	top:80px;
+	right:20px;
+	height: 20px;
+	width: 40px;
+	border-radius: 50px;
+	display: flex;
+	box-shadow: inset 0px 2px 8px rgba(0,0,0,0.80);
+	align-content: center;
+	padding: 5px;
+}
+
+.ButtonCircle2 {
+	border-radius: 50%;
+	background: linear-gradient(90deg, rgba(88,88,88,1.00), rgba(136,136,136,1.00));
+	height: 100%;
+	width: 50%;
+	overflow: visible;
+	transition: 0.3s ease
+}
+
+.remove {
+	animation: remove 0.5s ease;
+	animation-fill-mode: forwards;
+}
+
+.move {
+	animation: move 0.5s ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes move {
+	from {transform: translateX(0)}
+	to {transform: translate(100%)}
+}
+
+@keyframes remove {
+	from {transform: translateX(100%)}
+	to {transform: translate(0)}
+}
